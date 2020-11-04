@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel rendering components renders Carousel properly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="carousel"
+  >
+    <CSSTransition
+      classNames={
+        Object {
+          "enter": "enterAnimation",
+          "enterActive": "enterActiveAnimation",
+          "exit": "exitAnimation",
+          "exitActive": "exitActiveAnimation",
+        }
+      }
+      timeout={
+        Object {
+          "enter": 1000,
+          "exit": 1000,
+        }
+      }
+    >
+      <div
+        className="carousel_slide"
+      >
+        <Card
+          image="https://images.unsplash.com/photo-1590710529625-089e0fce50dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80"
+          key="0"
+        />
+        <Card
+          image="https://images.unsplash.com/photo-1551418988-c21e451467b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
+          key="1"
+        />
+        <Card
+          image="https://images.unsplash.com/photo-1602002418323-be2d725a9a56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+          key="2"
+        />
+        <Card
+          image="https://images.unsplash.com/photo-1533653251153-deae1449c17d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=619&q=80"
+          key="3"
+        />
+      </div>
+    </CSSTransition>
+    <ButtonControl
+      direction="next"
+      onClick={[Function]}
+      title="Next"
+    />
+  </div>
+</div>
+`;
