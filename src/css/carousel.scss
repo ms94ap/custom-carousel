@@ -86,25 +86,61 @@ html, #root {
 
 .enter-active.enter-next, .enter-active.enter-prev {
   transform: translateX(0);
-  transition: all 5000ms ease-in 5000ms;
+  transition: all 1000ms ease-in;
 }
 
 .enter-next {
   transform: translateX(100%);
-  transition: transform 5000ms ease-in 5000ms;
 }
 
 .enter-prev {
   transform: translateX(-100%);
-  transition: transform 5000ms ease-in 5000ms;
 }
 
-.leave-active-next {
+// .leave-active {
+//   transform: translateX(50%);
+//   transition: all 500ms ease-in;
+// }
+
+// .leave-active-prev {
+//   transform: translateX(-50%);
+//   transition: 1000ms ease-in;
+// }
+
+.leave-prev {
   transform: translateX(-100%);
-  transition: transform 5000ms ease-in 5000ms;
+  transition: all 1000ms ease-in;
 }
 
-.leave.leave-active-prev {
+.leave-next {
   transform: translateX(100%);
-  transition: transform 500ms ease-in;
+  transition: all 1000ms ease-in;
 }
+
+// .leave {
+//   transform: translateX(0);
+// }
+
+// .enter-active.enter-next, .enter-active.enter-prev {
+//   transform: translateX(0);
+//   transition: all 5000ms ease-in 500ms;
+// }
+
+// .enter-next {
+//   transform: translateX(100%);
+// }
+
+// .enter-prev {
+//   transform: translateX(-100%);
+//   transition: all 5000ms ease-in 500ms;
+// }
+
+// .leave.leave-active-next {
+//   transform: translateX(-100%);
+//   transition: all 5000ms ease-in 500ms;;
+// }
+
+// .leave.leave-active-prev {
+//   transform: translateX(100%);
+//   transition: all 5000ms ease-in 500ms;
+// }

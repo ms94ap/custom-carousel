@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import './../css/block.scss';
-import { CSSTransition, SwitchTransition, TransitionGroup } from 'react-transition-group';
+import './../css/carousel.scss';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import blocks from './../icons.json'
 import Card from './Card';
@@ -15,7 +15,17 @@ const Carousel = () =>  {
   const picturesPerSlide = 4
   const indexOfLastPicture = currentBlock * picturesPerSlide
   const indexOfFirstPicture = indexOfLastPicture - picturesPerSlide
-  const currentPictures = randomImages.slice(indexOfFirstPicture, indexOfLastPicture)
+	const currentPictures = randomImages.slice(indexOfFirstPicture, indexOfLastPicture)
+	
+	// function chunkArray(arr, val){
+	// 	var finalArr = []
+
+	// 	for(var i=0; i < arr.length; i += val){
+	// 		finalArr.push(arr.slice(i, val + 1))
+	// 	}
+	// }
+
+	// chunkArray([0, 1, 2, 3, 4,], 3)
 
   const imageList = currentPictures.map((image, index) =>{
 		return (
@@ -25,37 +35,71 @@ const Carousel = () =>  {
 
   const handlerPrev = () => {
 		let index = currentBlock
-		// setIsNext(false)
+		setIsNext(false)
 		setCurrentBlock( index - 1 )		
 		
   }
   
   const handlerNext = () => {
 		let index = currentBlock
-		// setIsNext(true)
+		setIsNext(true)
 		setCurrentBlock( index + 1 )
 	}
+
+	// console.log("handlerPrev",handlerPrev)
+	// console.log("handlerNext",handlerNext)
+	// console.log("currentBlock",currentBlock)
 	
 	const totalBlocks = Math.ceil(randomImages.length / picturesPerSlide)
 
 	let index = currentBlock
 	let	isnext = isNext
 
-	console.log("index", index)
+	console.log("isnext", isnext)
+
+	let enter
+	if (isnext){
+		enter = "enter-next"
+	} else if( !isnext) {
+		enter = 'enter-prev'
+	} else if( index === totalBlocks ){
+		enter = 'enter-next'
+	}
+
+	let leave
+	if( index === 1 ){
+		leave = 'leave-prev'
+	} else if ( index === totalBlocks ){
+		leave = 'leave-next'
+	} else if( handlerNext && index ){
+		leave = 'leave-prev'
+	} else if ( handlerPrev && !isnext ){
+		leave = 'leave-next'
+	}
+
+	
+
+	let exitActive
+	if (handlerNext){
+		exitActive = 'leave-active-prev'
+	} else if( handlerPrev) {
+		exitActive = 'leave-active-next'
+	} 
+
 	return (
 		<div className="container">
 			<div className="carousel">
 				<TransitionGroup>
 					<CSSTransition
 						key={index}
-						// appear={true}
+						appear={true}
 						classNames={{
-							enter: handlerNext ? 'enter-next' : 'enter-prev',
+							enter: enter,
             	enterActive: 'enter-active',
-            	exit: 'leave',
-            	// exitActive: handlerNext ? 'leave-active-next' : 'leave-active-prev'
+            	exit: leave,
+            	// exitActive: exitActive
 						}}
-						timeout={5000}
+						timeout={50000}
 						
 					>
 						<div className="carousel_slide" key={index}>
@@ -67,7 +111,7 @@ const Carousel = () =>  {
 			</div>
 			<ButtonControl
 					 		disabled={ currentBlock === 1 }
-							title="Previous"
+							title="Prev"
 							onClick={handlerPrev}
 							direction="prev"
 					 />
