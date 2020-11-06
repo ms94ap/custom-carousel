@@ -59,31 +59,31 @@ const Carousel = () =>  {
 
 	let enter
 	if (isnext){
-		enter = "enter-next"
+		enter = "animation-enter-next"
 	} else if( !isnext) {
-		enter = 'enter-prev'
+		enter = 'animation-enter-prev'
 	} else if( index === totalBlocks ){
-		enter = 'enter-next'
+		enter = 'animation-enter-next'
 	}
 
 	let leave
 	if( index === 1 ){
-		leave = 'leave-prev'
+		leave = 'animation-exit-prev'
 	} else if ( index === totalBlocks ){
-		leave = 'leave-next'
-	} else if( handlerNext && index ){
-		leave = 'leave-prev'
+		leave = 'animation-exit-next'
+	} else if( handlerNext && isnext ){
+		leave = 'animation-exit-prev'
 	} else if ( handlerPrev && !isnext ){
-		leave = 'leave-next'
+		leave = 'animation-exit-next'
 	}
 
 	
 
 	let exitActive
-	if (handlerNext){
-		exitActive = 'leave-active-prev'
+	if (isnext){
+		exitActive = 'animation-exit-active-next'
 	} else if( handlerPrev) {
-		exitActive = 'leave-active-next'
+		exitActive = 'animation-exit-active-prev'
 	} 
 
 	return (
@@ -95,11 +95,11 @@ const Carousel = () =>  {
 						appear={true}
 						classNames={{
 							enter: enter,
-            	enterActive: 'enter-active',
+            	enterActive: 'animation-enter-active',
             	exit: leave,
-            	// exitActive: exitActive
+            	exitActive: exitActive
 						}}
-						timeout={50000}
+						timeout={1000}
 						
 					>
 						<div className="carousel_slide" key={index}>
