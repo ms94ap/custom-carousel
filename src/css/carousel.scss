@@ -80,39 +80,40 @@ html, #root {
   height: 100%;
 }
 
-.leave {
+.animation-exit {
   transform: translateX(0);
 }
 
-.enter-active.enter-next, .enter-active.enter-prev {
+.animation-enter-active.animation-enter-next,
+.animation-enter-active.animation-enter-prev {
   transform: translateX(0);
   transition: all 1000ms ease-in;
 }
 
-.enter-next {
+.animation-enter-next {
   transform: translateX(100%);
 }
 
-.enter-prev {
+.animation-enter-prev {
   transform: translateX(-100%);
 }
 
-// .leave-active {
-//   transform: translateX(50%);
-//   transition: all 500ms ease-in;
-// }
+.animation-exit-active {
+  transform: translateX(50%);
+  transition: all 500ms ease-in;
+}
 
-// .leave-active-prev {
-//   transform: translateX(-50%);
-//   transition: 1000ms ease-in;
-// }
+.animation-exit-active-prev {
+  transform: translateX(-50%);
+  transition: 1000ms ease-in;
+}
 
-.leave-prev {
+.animation-exit-prev {
   transform: translateX(-100%);
   transition: all 1000ms ease-in;
 }
 
-.leave-next {
+.animation-exit-next {
   transform: translateX(100%);
   transition: all 1000ms ease-in;
 }
