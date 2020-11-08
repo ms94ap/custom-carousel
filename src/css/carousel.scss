@@ -50,10 +50,10 @@
     width: 5%;
     overflow: hidden;
     transition: background-color 300ms ease;
-    cursor: pointer;    
+    cursor: pointer;
+    bottom: -30px;
     &:hover {
       background-color: rgba(0,0,0,0.2);
-      
       span {
         opacity: 0.95;
       }
@@ -62,11 +62,11 @@
       outline: transparent 0;
     }
     &__prev {
-      left: 0;
+      left: 45%;
       padding-left: 12px;
     }
     &__next {
-      right: 0;
+      right: 45%;
       padding-right: 12px;
     }
   }

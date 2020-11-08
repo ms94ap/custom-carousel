@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Custom Carousel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I really enjoyed this exercise. Although never worked with a custom carousel before, it gave me the opportunity to work and test different options on how to build a custom carousel. I hope I demonstared an understanidng of how to solve it. Thanks for your time!
 
-## Available Scripts
+## Solution Overview
 
-In the project directory, you can run:
+1. "Fetched" data
+   `App.js`
+2. Carousel logic
+   `app/src/components/Carousel.js`
+3. Json Data
+   `src/icons.json`
+   - Images source: [Unsplash.com](https://unsplash.com/)
+4. Sass for styling
+   `src/css/carousel.scss`
 
-### `yarn start`
+## Result
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The current implementation has obvious room for improvement, but meets the spec by:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Selecting a random picture from a block of pictures and display four at a time.
+   - currently displaying 3 blocks
+2. The user can click left or right with each block moving accordingly.
+   - React TransitionGroup add on, provide excellent way to handle block transitions.
+   - React useState hook to keep the state of the block index
+3. Reaching both ends, buttons are disabled.
 
-### `yarn test`
+## Improvements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Current implementation has standard display functionality from right/left and vice verca. But a possible improvement could be giving the user the option to choose from the following:
 
-### `yarn build`
+- User sets the amount of pictures to be displayed
+- Display method. Such as fade in/out etc.
+- Amount of pictures loaded from each block
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React (16.04)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installing
 
-### `yarn eject`
+- `npm install`
+  or alternatively
+- `yarn install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Running
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `npm start`
+  or alternatively
+- `yarn start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I applied very basic testing despite it not being my strongest skills.
 
-## Learn More
+- Carousel Snapshot
+- Mocking a click event.
+  `Testing - src/tests/Carousel.test.js`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run tests:
+`npm test` or `yarn test`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Issues
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Creating a new React project gives version 17.1. Although Jest is shipped with a new porject when `npx create-react-app my-app`, I also wanted to utilise Enzyme to test the component. Unfortunately the current Enzyme version (16.X) didn't support installed React version so I had to downgrade from React (17.1) to (16.4) which caused project compiling issues.
