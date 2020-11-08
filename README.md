@@ -27,10 +27,10 @@ The current implementation has obvious room for improvement, but meets the spec 
 
 ## Improvements
 
-Current implementation has standard display functionality from right/left and vice verca. But a possible improvement could be giving the user the option to choose from the following:
+Improvement would be by giving the user the option to choose from the following:
 
 - User sets the amount of pictures to be displayed
-- Display method. Such as fade in/out etc.
+- Display method other than current (left/right). Such as fade in/out etc.
 - Amount of pictures loaded from each block
 
 ## Requirements
@@ -42,7 +42,7 @@ Current implementation has standard display functionality from right/left and vi
 - `npm install`
 - `npm start`
 
-## Installing and Running Yarn
+## Installing and Running with Yarn
 
 - `yarn install`
 - `yarn start`
