@@ -37,16 +37,14 @@ Current implementation has standard display functionality from right/left and vi
 
 - React (16.04)
 
-## Installing
+## Installing and Running with NPM
 
 - `npm install`
-  or alternatively
-- `yarn install`
-
-## Running
-
 - `npm start`
-  or alternatively
+
+## Installing and Running Yarn
+
+- `yarn install`
 - `yarn start`
 
 ## Testing
@@ -59,7 +57,3 @@ I applied very basic testing despite it not being my strongest skills.
 
 To run tests:
 `npm test` or `yarn test`
-
-## Issues
-
-Creating a new React project gives version 17.1. Although Jest is shipped with a new porject when `npx create-react-app my-app`, I also wanted to utilise Enzyme to test the component. Unfortunately the current Enzyme version (16.X) didn't support installed React version so I had to downgrade from React (17.1) to (16.4) which caused project compiling issues.
