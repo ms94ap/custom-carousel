@@ -44,7 +44,7 @@ const Carousel = (props) =>  {
 						timeout={1000}
 					>
 						<div className="carousel_slide" key={currentBlock}>
-							{imagesArr[currentBlock].map((image, index) => (<Card image={image} key={currentBlock+index}/>) )}
+							{imagesArr[currentBlock].map((image, index) => (<Card image={image} key={index}/>) )}
 						</div>
 						
 					</CSSTransition>
